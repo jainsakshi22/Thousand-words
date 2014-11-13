@@ -25,11 +25,17 @@
                             <outlet property="delegate" destination="EYu-KA-XgX" id="aBL-b6-6X5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="xWT-m6-x5l"/>
+                    <navigationItem key="navigationItem" id="xWT-m6-x5l">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="VHc-ph-Bf9">
+                            <connections>
+                                <action selector="addAlbumBarButtonItemPressed:" destination="EYu-KA-XgX" id="Uqn-am-HE6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0q-xu-fc2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1237.5" y="474.75"/>
+            <point key="canvasLocation" x="1461" y="505"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yys-Wo-UlU">

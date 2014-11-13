@@ -20,6 +20,14 @@
     return _albums;
 }
 
+-(IBAction)addAlbumBarButtonItemPressed:(UIBarButtonItem *)sender
+{
+    //Add delegate this time as we are using other button "Add" here
+    UIAlertView *newAlbumAlertView = [[UIAlertView alloc] initWithTitle:@"Enter new album name" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+    [newAlbumAlertView setAlertViewStyle : UIAlertViewStylePlainTextInput];
+    [newAlbumAlertView show];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
