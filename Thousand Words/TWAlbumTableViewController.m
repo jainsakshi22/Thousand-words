@@ -8,7 +8,7 @@
 
 #import "TWAlbumTableViewController.h"
 
-@interface TWAlbumTableViewController ()
+@interface TWAlbumTableViewController () <UIAlertViewDelegate>
 
 @end
 
@@ -41,6 +41,17 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UIAlertView Delegate
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex ==1)
+    {
+        NSString *alertText = [alertView textFieldAtIndex:0].text;
+        NSLog(@"My new album name is %@", alertText);
+    }
 }
 
 #pragma mark - Table view data source
