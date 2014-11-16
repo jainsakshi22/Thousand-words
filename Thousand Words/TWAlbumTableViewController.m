@@ -48,16 +48,26 @@
 
 #pragma mark - Helper methods
 
+/* 
+ This method will create an album object in our database, and returns it. It takes one parameter, an NSString which will be set to our albums name.
+ 
+ We first access our app delegate, and from that we get our NSManagedObjectContext. Each NSManagedObject belongs to only one NSMangedObject context which is responsible for managing it. We will be using the same context in the entire application.
+ 
+ Next we create our new persistent Album object using the class method insertNewObjectForEntityForName. This is a class method on NSEntitiyDescription that takes both the entities name and a context, or Scratchpad. With our NSMangedObject subclass, we set its attributes exactly as we would properties. Notice the [NSDate date] method makes sure that our Album’s date attribute represents the date it was created. Finally, we save our new object to the database using the method save.
+ */
 -(Album *)albumNameWithAlbum : (NSString *)name
 {
+    //Create a variable that points to the NSManagedObjectContext from our App Delegate.
     id delegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context  = [delegate managedObjectContext];
     
+    //Next, create an NSManagedObject subclass with the class method insertNewObjectForEntityForName and set its’ attributes.
     Album *album = [NSEntityDescription insertNewObjectForEntityForName:@"Album" inManagedObjectContext:context];
     album.name = name;
     album.date = [NSDate date];
     
     NSError *error = nil;
+    //Finally, call the method save on the instance of our NSManagedObjectContext.
     if (![context save : &error])
     {
         //we have an error
@@ -75,7 +85,17 @@
     if (buttonIndex ==1)
     {
         NSString *alertText = [alertView textFieldAtIndex:0].text;
-        NSLog(@"My new album name is %@", alertText);
+        /*
+        Album *newAlbum = [self albumNameWithAlbum:alertText];
+        [self.albums addObject:newAlbum];
+        [self.tableView reloadData];
+         */
+        
+        //Perform same task as above 3 lines
+        //Efficient way: Use insert method instead of reloading the whole table
+        [self.albums addObject:[self albumNameWithAlbum:alertText]];
+        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.albums count] -1 inSection:0]]withRowAnimation:UITableViewRowAnimationFade];
+        
     }
 }
 
@@ -92,15 +112,18 @@
     return [self.albums count];
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
+    Album *selectedAlbum = self.albums[indexPath.row];
+    cell.textLabel.text = selectedAlbum.name;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
