@@ -31,6 +31,25 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+//Queries our database for objects
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Album"];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
+    
+    id delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [delegate managedObjectContext];
+    
+    NSError *error = nil;
+    
+    NSArray *fetchedAlbums = [context executeFetchRequest:fetchRequest error:&error];
+    self.albums = [fetchedAlbums mutableCopy];
+    
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
