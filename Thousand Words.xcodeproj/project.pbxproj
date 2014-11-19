@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53064CB91A18B8FE00F90037 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 53064CB81A18B8FE00F90037 /* CoreDataHelper.m */; };
 		532387351A126085005E9C8A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 532387341A126085005E9C8A /* Storyboard.storyboard */; };
 		532387381A126139005E9C8A /* TWAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532387371A126139005E9C8A /* TWAlbumTableViewController.m */; };
 		53319F401A150414006888A3 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 53319F3F1A150414006888A3 /* Album.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		53064CB71A18B8FE00F90037 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		53064CB81A18B8FE00F90037 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		532387341A126085005E9C8A /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		532387361A126139005E9C8A /* TWAlbumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWAlbumTableViewController.h; sourceTree = "<group>"; };
 		532387371A126139005E9C8A /* TWAlbumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWAlbumTableViewController.m; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 				532387361A126139005E9C8A /* TWAlbumTableViewController.h */,
 				532387371A126139005E9C8A /* TWAlbumTableViewController.m */,
 				532387341A126085005E9C8A /* Storyboard.storyboard */,
+				53064CB71A18B8FE00F90037 /* CoreDataHelper.h */,
+				53064CB81A18B8FE00F90037 /* CoreDataHelper.m */,
 				53E8E0771A11201200259FE3 /* Images.xcassets */,
 				53E8E06E1A11201200259FE3 /* Thousand_Words.xcdatamodeld */,
 				53319F3E1A150414006888A3 /* Album.h */,
@@ -222,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53064CB91A18B8FE00F90037 /* CoreDataHelper.m in Sources */,
 				53E8E06D1A11201200259FE3 /* AppDelegate.m in Sources */,
 				53E8E06A1A11201200259FE3 /* main.m in Sources */,
 				532387381A126139005E9C8A /* TWAlbumTableViewController.m in Sources */,

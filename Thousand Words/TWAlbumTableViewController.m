@@ -8,6 +8,7 @@
 
 #import "TWAlbumTableViewController.h"
 #import "Album.h"
+#import "CoreDataHelper.h"
 
 @interface TWAlbumTableViewController () <UIAlertViewDelegate>
 
@@ -39,12 +40,9 @@
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Album"];
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
     
-    id delegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = [delegate managedObjectContext];
-    
     NSError *error = nil;
     
-    NSArray *fetchedAlbums = [context executeFetchRequest:fetchRequest error:&error];
+    NSArray *fetchedAlbums = [[CoreDataHelper managedObjectContext] executeFetchRequest:fetchRequest error:&error];
     self.albums = [fetchedAlbums mutableCopy];
     
     [self.tableView reloadData];
@@ -77,8 +75,7 @@
 -(Album *)albumNameWithAlbum : (NSString *)name
 {
     //Create a variable that points to the NSManagedObjectContext from our App Delegate.
-    id delegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context  = [delegate managedObjectContext];
+    NSManagedObjectContext *context  = [CoreDataHelper managedObjectContext];
     
     //Next, create an NSManagedObject subclass with the class method insertNewObjectForEntityForName and set its’ attributes.
     Album *album = [NSEntityDescription insertNewObjectForEntityForName:@"Album" inManagedObjectContext:context];
