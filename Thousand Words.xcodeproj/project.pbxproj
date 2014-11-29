@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		53064CB91A18B8FE00F90037 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 53064CB81A18B8FE00F90037 /* CoreDataHelper.m */; };
+		530A65E61A209F2E00D7BE91 /* TWPhotosCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 530A65E51A209F2E00D7BE91 /* TWPhotosCollectionViewController.m */; };
+		530A65E91A20B02F00D7BE91 /* TWPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 530A65E81A20B02F00D7BE91 /* TWPhotoCollectionViewCell.m */; };
 		532387351A126085005E9C8A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 532387341A126085005E9C8A /* Storyboard.storyboard */; };
 		532387381A126139005E9C8A /* TWAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532387371A126139005E9C8A /* TWAlbumTableViewController.m */; };
 		53319F401A150414006888A3 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 53319F3F1A150414006888A3 /* Album.m */; };
+		53CF93BE1A292EFA00FF77FE /* astronaut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 53CF93BD1A292EFA00FF77FE /* astronaut.jpg */; };
 		53E8E06A1A11201200259FE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E8E0691A11201200259FE3 /* main.m */; };
 		53E8E06D1A11201200259FE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E8E06C1A11201200259FE3 /* AppDelegate.m */; };
 		53E8E0701A11201200259FE3 /* Thousand_Words.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53E8E06E1A11201200259FE3 /* Thousand_Words.xcdatamodeld */; };
@@ -31,11 +34,16 @@
 /* Begin PBXFileReference section */
 		53064CB71A18B8FE00F90037 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
 		53064CB81A18B8FE00F90037 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		530A65E41A209F2E00D7BE91 /* TWPhotosCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWPhotosCollectionViewController.h; sourceTree = "<group>"; };
+		530A65E51A209F2E00D7BE91 /* TWPhotosCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWPhotosCollectionViewController.m; sourceTree = "<group>"; };
+		530A65E71A20B02F00D7BE91 /* TWPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWPhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		530A65E81A20B02F00D7BE91 /* TWPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWPhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		532387341A126085005E9C8A /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		532387361A126139005E9C8A /* TWAlbumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWAlbumTableViewController.h; sourceTree = "<group>"; };
 		532387371A126139005E9C8A /* TWAlbumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWAlbumTableViewController.m; sourceTree = "<group>"; };
 		53319F3E1A150414006888A3 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
 		53319F3F1A150414006888A3 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
+		53CF93BD1A292EFA00FF77FE /* astronaut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = astronaut.jpg; sourceTree = "<group>"; };
 		53E8E0641A11201200259FE3 /* Thousand Words.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Thousand Words.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E8E0681A11201200259FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53E8E0691A11201200259FE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,6 +98,10 @@
 				532387361A126139005E9C8A /* TWAlbumTableViewController.h */,
 				532387371A126139005E9C8A /* TWAlbumTableViewController.m */,
 				532387341A126085005E9C8A /* Storyboard.storyboard */,
+				530A65E71A20B02F00D7BE91 /* TWPhotoCollectionViewCell.h */,
+				530A65E81A20B02F00D7BE91 /* TWPhotoCollectionViewCell.m */,
+				530A65E41A209F2E00D7BE91 /* TWPhotosCollectionViewController.h */,
+				530A65E51A209F2E00D7BE91 /* TWPhotosCollectionViewController.m */,
 				53064CB71A18B8FE00F90037 /* CoreDataHelper.h */,
 				53064CB81A18B8FE00F90037 /* CoreDataHelper.m */,
 				53E8E0771A11201200259FE3 /* Images.xcassets */,
@@ -104,6 +116,7 @@
 		53E8E0671A11201200259FE3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				53CF93BD1A292EFA00FF77FE /* astronaut.jpg */,
 				53E8E06B1A11201200259FE3 /* AppDelegate.h */,
 				53E8E06C1A11201200259FE3 /* AppDelegate.m */,
 				53E8E0681A11201200259FE3 /* Info.plist */,
@@ -208,6 +221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53CF93BE1A292EFA00FF77FE /* astronaut.jpg in Resources */,
 				53E8E0781A11201200259FE3 /* Images.xcassets in Resources */,
 				532387351A126085005E9C8A /* Storyboard.storyboard in Resources */,
 			);
@@ -228,6 +242,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				53064CB91A18B8FE00F90037 /* CoreDataHelper.m in Sources */,
+				530A65E61A209F2E00D7BE91 /* TWPhotosCollectionViewController.m in Sources */,
+				530A65E91A20B02F00D7BE91 /* TWPhotoCollectionViewCell.m in Sources */,
 				53E8E06D1A11201200259FE3 /* AppDelegate.m in Sources */,
 				53E8E06A1A11201200259FE3 /* main.m in Sources */,
 				532387381A126139005E9C8A /* TWAlbumTableViewController.m in Sources */,

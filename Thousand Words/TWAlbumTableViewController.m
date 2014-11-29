@@ -77,7 +77,7 @@
     //Create a variable that points to the NSManagedObjectContext from our App Delegate.
     NSManagedObjectContext *context  = [CoreDataHelper managedObjectContext];
     
-    //Next, create an NSManagedObject subclass with the class method insertNewObjectForEntityForName and set its’ attributes.
+    //Next, create an NSManagedObject subclass with the class method insertNewObjectForEntityForName and set its’ attributes. //Create new persistent NSMangagedObject
     Album *album = [NSEntityDescription insertNewObjectForEntityForName:@"Album" inManagedObjectContext:context];
     album.name = name;
     album.date = [NSDate date];
@@ -87,7 +87,6 @@
     if (![context save : &error])
     {
         //we have an error
-        
         NSLog(@"%@", error);
     }
     return album;
