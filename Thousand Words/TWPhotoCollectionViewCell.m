@@ -33,7 +33,8 @@
 
 -(void)setup
 {
-    self.imageView = [[UIImageView alloc] initWithFrame:CGRectInset(self.bounds, IMAGEVIEW_BORDER_LENGTH, IMAGEVIEW_BORDER_LENGTH)];
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0+IMAGEVIEW_BORDER_LENGTH, 0+IMAGEVIEW_BORDER_LENGTH, 180-(2*IMAGEVIEW_BORDER_LENGTH),180-(2*IMAGEVIEW_BORDER_LENGTH))];
+                      //CGRectInset(self.bounds, IMAGEVIEW_BORDER_LENGTH, IMAGEVIEW_BORDER_LENGTH)];
     [self.contentView addSubview:self.imageView];
 }
 

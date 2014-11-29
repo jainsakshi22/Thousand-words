@@ -44,6 +44,23 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 */
 
+- (IBAction)cameraBarButtonItemPressed:(UIBarButtonItem *)sender
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
+    {
+        picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    }
+    //how we present a ViewController modally. Modally means that it will take over the full screen.
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -97,5 +114,6 @@ static NSString * const reuseIdentifier = @"Cell";
 	
 }
 */
+
 
 @end
