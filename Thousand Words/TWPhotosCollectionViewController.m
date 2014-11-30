@@ -11,9 +11,20 @@
 
 @interface TWPhotosCollectionViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
+@property (strong,nonatomic) NSMutableArray *photos; //of UIImages
+
 @end
 
 @implementation TWPhotosCollectionViewController
+
+-(NSMutableArray *) photos
+{
+    if (!_photos)
+    {
+        _photos = [[NSMutableArray alloc] init];
+    }
+    return _photos;
+}
 
 static NSString * const reuseIdentifier = @"Cell";
 
@@ -71,7 +82,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 #warning Incomplete method implementation -- Return the number of items in the section
-    return 5;
+    return [self.photos count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -79,7 +90,7 @@ static NSString * const reuseIdentifier = @"Cell";
     TWPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     cell.backgroundColor = [UIColor whiteColor];
-    cell.imageView.image = [UIImage imageNamed:@"astronaut.jpg"];
+    cell.imageView.image = self.photos[indexPath.row];
     
     return cell;
 }
@@ -88,13 +99,17 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    NSLog(@"Finished picking");
+    UIImage *image = info[UIImagePickerControllerEditedImage];
+    if (!image) image = info[UIImagePickerControllerOriginalImage];
+    
+    [self.photos addObject:image];
+    [self.collectionView reloadData];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    NSLog(@"Cancel");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
