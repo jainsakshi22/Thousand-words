@@ -13,6 +13,7 @@
 		532387351A126085005E9C8A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 532387341A126085005E9C8A /* Storyboard.storyboard */; };
 		532387381A126139005E9C8A /* TWAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532387371A126139005E9C8A /* TWAlbumTableViewController.m */; };
 		53319F401A150414006888A3 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 53319F3F1A150414006888A3 /* Album.m */; };
+		53C89EE31A2B4E910036800B /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C89EE21A2B4E910036800B /* Photo.m */; };
 		53CF93BE1A292EFA00FF77FE /* astronaut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 53CF93BD1A292EFA00FF77FE /* astronaut.jpg */; };
 		53E8E06A1A11201200259FE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E8E0691A11201200259FE3 /* main.m */; };
 		53E8E06D1A11201200259FE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E8E06C1A11201200259FE3 /* AppDelegate.m */; };
@@ -43,6 +44,8 @@
 		532387371A126139005E9C8A /* TWAlbumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWAlbumTableViewController.m; sourceTree = "<group>"; };
 		53319F3E1A150414006888A3 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
 		53319F3F1A150414006888A3 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
+		53C89EE11A2B4E910036800B /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		53C89EE21A2B4E910036800B /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		53CF93BD1A292EFA00FF77FE /* astronaut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = astronaut.jpg; sourceTree = "<group>"; };
 		53E8E0641A11201200259FE3 /* Thousand Words.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Thousand Words.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E8E0681A11201200259FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,6 +77,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53C89EE41A2B4EA00036800B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				53E8E06E1A11201200259FE3 /* Thousand_Words.xcdatamodeld */,
+				53C89EE11A2B4E910036800B /* Photo.h */,
+				53C89EE21A2B4E910036800B /* Photo.m */,
+				53319F3E1A150414006888A3 /* Album.h */,
+				53319F3F1A150414006888A3 /* Album.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		53E8E05B1A11201200259FE3 = {
 			isa = PBXGroup;
 			children = (
@@ -105,9 +120,7 @@
 				53064CB71A18B8FE00F90037 /* CoreDataHelper.h */,
 				53064CB81A18B8FE00F90037 /* CoreDataHelper.m */,
 				53E8E0771A11201200259FE3 /* Images.xcassets */,
-				53E8E06E1A11201200259FE3 /* Thousand_Words.xcdatamodeld */,
-				53319F3E1A150414006888A3 /* Album.h */,
-				53319F3F1A150414006888A3 /* Album.m */,
+				53C89EE41A2B4EA00036800B /* CoreData */,
 				53E8E0671A11201200259FE3 /* Supporting Files */,
 			);
 			path = "Thousand Words";
@@ -244,6 +257,7 @@
 				53064CB91A18B8FE00F90037 /* CoreDataHelper.m in Sources */,
 				530A65E61A209F2E00D7BE91 /* TWPhotosCollectionViewController.m in Sources */,
 				530A65E91A20B02F00D7BE91 /* TWPhotoCollectionViewCell.m in Sources */,
+				53C89EE31A2B4E910036800B /* Photo.m in Sources */,
 				53E8E06D1A11201200259FE3 /* AppDelegate.m in Sources */,
 				53E8E06A1A11201200259FE3 /* main.m in Sources */,
 				532387381A126139005E9C8A /* TWAlbumTableViewController.m in Sources */,
