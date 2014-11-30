@@ -9,7 +9,7 @@
 #import "TWPhotosCollectionViewController.h"
 #import "TWPhotoCollectionViewCell.h"
 
-@interface TWPhotosCollectionViewController ()
+@interface TWPhotosCollectionViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @end
 
@@ -82,6 +82,20 @@ static NSString * const reuseIdentifier = @"Cell";
     cell.imageView.image = [UIImage imageNamed:@"astronaut.jpg"];
     
     return cell;
+}
+
+#pragma mark - UIImagePickerController Delegate
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    NSLog(@"Finished picking");
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    NSLog(@"Cancel");
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark <UICollectionViewDelegate>
