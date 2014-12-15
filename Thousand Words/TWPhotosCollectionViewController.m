@@ -8,6 +8,9 @@
 
 #import "TWPhotosCollectionViewController.h"
 #import "TWPhotoCollectionViewCell.h"
+#import "Photo.h"
+#import "TWPictureDataTransformer.h"
+#import "CoreDataHelper.h"
 
 @interface TWPhotosCollectionViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
@@ -38,6 +41,11 @@ static NSString * const reuseIdentifier = @"Cell";
   //  [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
+   /* We need to query core data to get back all the photos for a specific album. The photos will be in an unordered NSSet, then we will order the photos in an array according to their date.*/
+    NSSet *unorderedPhotos = self.album.photos;
+    NSSortDescriptor *datedescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+    NSArray *sortedPhotos = [unorderedPhotos sortedArrayUsingDescriptors:@[datedescriptor]];
+    self.photos = [sortedPhotos mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,6 +80,23 @@ static NSString * const reuseIdentifier = @"Cell";
     [self presentViewController:picker animated:YES completion:nil];
 }
 
+#pragma mark - Helper methods
+
+-(Photo *)photoFromImage : (UIImage *)image
+{
+    Photo *photo = [NSEntityDescription insertNewObjectForEntityForName :@"Photo" inManagedObjectContext:[CoreDataHelper managedObjectContext]];
+    photo.image = image;
+    photo.date = [NSDate date];
+    photo.albumBook = self.album;
+    
+    NSError *error = nil;
+    if (![[photo managedObjectContext] save:&error])
+    {
+        NSLog(@"%@",error);
+    }
+    return photo;
+}
+
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -89,8 +114,10 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     TWPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
+    Photo *photo = self.photos[indexPath.row];
+    
     cell.backgroundColor = [UIColor whiteColor];
-    cell.imageView.image = self.photos[indexPath.row];
+    cell.imageView.image =photo.image;
     
     return cell;
 }
@@ -102,7 +129,7 @@ static NSString * const reuseIdentifier = @"Cell";
     UIImage *image = info[UIImagePickerControllerEditedImage];
     if (!image) image = info[UIImagePickerControllerOriginalImage];
     
-    [self.photos addObject:image];
+    [self.photos addObject:[self photoFromImage:image]];
     [self.collectionView reloadData];
     
     [self dismissViewControllerAnimated:YES completion:nil];

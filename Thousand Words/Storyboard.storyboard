@@ -19,7 +19,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="MdN-u6-U0F" kind="push" id="npe-Kp-Hrl"/>
+                                    <segue destination="MdN-u6-U0F" kind="push" identifier="Album Chosen" id="npe-Kp-Hrl"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -62,6 +62,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="rNF-Wx-aHE" kind="push" id="eNA-q6-eho"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -80,6 +83,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idW-m0-wUy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2019" y="474"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="Abt-qz-O8f">
+            <objects>
+                <viewController id="rNF-Wx-aHE" customClass="PhotoDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fkU-6o-EFB"/>
+                        <viewControllerLayoutGuide type="bottom" id="L2O-QN-UKw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GcZ-zX-qGO">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P6F-7N-JHH">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="715"/>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnk-K8-3P8">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Add Filter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="25" y="742" width="67" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="addFilterButtonPressed:" destination="rNF-Wx-aHE" eventType="touchUpInside" id="cBu-ed-z5h"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgg-kg-FZM">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="326" y="742" width="44" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="rNF-Wx-aHE" eventType="touchUpInside" id="Xw4-tt-DKN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="P6F-7N-JHH"/>
+                                <exclude reference="xnk-K8-3P8"/>
+                                <exclude reference="bgg-kg-FZM"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="P6F-7N-JHH"/>
+                                <include reference="xnk-K8-3P8"/>
+                                <include reference="bgg-kg-FZM"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="q6e-IE-mHP"/>
+                    <connections>
+                        <outlet property="imageView" destination="P6F-7N-JHH" id="6iu-Il-fTF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HLf-So-9DW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2704.5" y="474"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yys-Wo-UlU">

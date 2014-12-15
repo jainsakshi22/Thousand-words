@@ -22,6 +22,8 @@
 
 - (void)addPhotosObject:(Photo *)value;
 - (void)removePhotosObject:(Photo *)value;
+//- (void)addPhotosObject:(NSManagedObject *)value;
+//- (void)removePhotosObject:(NSManagedObject *)value;
 - (void)addPhotos:(NSSet *)values;
 - (void)removePhotos:(NSSet *)values;
 
