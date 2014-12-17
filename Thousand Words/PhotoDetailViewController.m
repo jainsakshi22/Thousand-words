@@ -51,6 +51,8 @@
 
 - (IBAction)deleteButtonPressed:(UIButton *)sender
 {
+    [[self.photo managedObjectContext ] deleteObject:self.photo];
     
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end
