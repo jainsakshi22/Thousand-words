@@ -7,14 +7,27 @@
 //
 
 #import "FiltersCollectionViewController.h"
+#import "TWPhotoCollectionViewCell.h" 
+#import "Photo.h"
 
 @interface FiltersCollectionViewController ()
+
+@property (strong,nonatomic) NSMutableArray *filters;
 
 @end
 
 @implementation FiltersCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+-(NSMutableArray *)filters
+{
+    if (!_filters)
+    {
+        _filters = [[NSMutableArray alloc] init];
+    }
+    return _filters;
+}
+
+static NSString * const reuseIdentifier = @"Photo Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,19 +60,20 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
 #warning Incomplete method implementation -- Return the number of sections
-    return 0;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 #warning Incomplete method implementation -- Return the number of items in the section
-    return 0;
+    return [self.filters count];
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TWPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor whiteColor];
+    cell.imageView.image = self.photo.image;
     
     return cell;
 }

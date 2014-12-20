@@ -6,6 +6,8 @@
 //
 //
 
+//purpose to create this class: Add image view on cell of collection view and display picture on cell
+
 #import <UIKit/UIKit.h>
 
 @interface TWPhotoCollectionViewCell : UICollectionViewCell 
