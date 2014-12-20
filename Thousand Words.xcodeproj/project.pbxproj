@@ -22,6 +22,7 @@
 		53E8E0701A11201200259FE3 /* Thousand_Words.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53E8E06E1A11201200259FE3 /* Thousand_Words.xcdatamodeld */; };
 		53E8E0781A11201200259FE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53E8E0771A11201200259FE3 /* Images.xcassets */; };
 		53E8E0871A11201200259FE3 /* Thousand_WordsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E8E0861A11201200259FE3 /* Thousand_WordsTests.m */; };
+		53FE26B01A45A169002236B3 /* FiltersCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE26AF1A45A169002236B3 /* FiltersCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		53E8E0801A11201200259FE3 /* Thousand WordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Thousand WordsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E8E0851A11201200259FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53E8E0861A11201200259FE3 /* Thousand_WordsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Thousand_WordsTests.m; sourceTree = "<group>"; };
+		53FE26AE1A45A169002236B3 /* FiltersCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiltersCollectionViewController.h; sourceTree = "<group>"; };
+		53FE26AF1A45A169002236B3 /* FiltersCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiltersCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				532387361A126139005E9C8A /* TWAlbumTableViewController.h */,
 				532387371A126139005E9C8A /* TWAlbumTableViewController.m */,
 				532387341A126085005E9C8A /* Storyboard.storyboard */,
+				53FE26AE1A45A169002236B3 /* FiltersCollectionViewController.h */,
+				53FE26AF1A45A169002236B3 /* FiltersCollectionViewController.m */,
 				53B1C6231A3C6AAA00F06721 /* PhotoDetailViewController.h */,
 				53B1C6241A3C6AAA00F06721 /* PhotoDetailViewController.m */,
 				530A65E71A20B02F00D7BE91 /* TWPhotoCollectionViewCell.h */,
@@ -268,6 +273,7 @@
 				53B1C6251A3C6AAA00F06721 /* PhotoDetailViewController.m in Sources */,
 				53C77ADB1A2CE6400003AA54 /* TWPictureDataTransformer.m in Sources */,
 				530A65E61A209F2E00D7BE91 /* TWPhotosCollectionViewController.m in Sources */,
+				53FE26B01A45A169002236B3 /* FiltersCollectionViewController.m in Sources */,
 				530A65E91A20B02F00D7BE91 /* TWPhotoCollectionViewCell.m in Sources */,
 				53C89EEA1A2B50680036800B /* Photo.m in Sources */,
 				53C89EE71A2B50670036800B /* Album.m in Sources */,
