@@ -53,6 +53,15 @@
 {
     [[self.photo managedObjectContext ] deleteObject:self.photo];
     
+    //permanently delete when restarting the simulator
+    NSError *error = nil;
+    [[self.photo managedObjectContext] save:&error];
+    if (error)
+    {
+        NSLog(@"error");
+    }
+        
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 @end

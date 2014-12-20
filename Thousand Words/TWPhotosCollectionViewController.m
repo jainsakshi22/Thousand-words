@@ -42,11 +42,20 @@ static NSString * const reuseIdentifier = @"Cell";
   //  [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
-   /* We need to query core data to get back all the photos for a specific album. The photos will be in an unordered NSSet, then we will order the photos in an array according to their date.*/
+
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    /* We need to query core data to get back all the photos for a specific album. The photos will be in an unordered NSSet, then we will order the photos in an array according to their date.*/
     NSSet *unorderedPhotos = self.album.photos;
     NSSortDescriptor *datedescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
     NSArray *sortedPhotos = [unorderedPhotos sortedArrayUsingDescriptors:@[datedescriptor]];
     self.photos = [sortedPhotos mutableCopy];
+    
+    [self.collectionView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning {
