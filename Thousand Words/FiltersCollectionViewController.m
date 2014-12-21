@@ -39,6 +39,7 @@ static NSString * const reuseIdentifier = @"Photo Cell";
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
+    self.filters = [[[self class] photoFilters] mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,6 +56,26 @@ static NSString * const reuseIdentifier = @"Photo Cell";
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Helper methods
+
++(NSArray *)photoFilters
+{
+    CIFilter *sepia = [CIFilter filterWithName:@"CISepiaTone" keysAndValues: nil];
+    CIFilter *blur = [CIFilter filterWithName:@"CIGaussianBlur" keysAndValues: nil];
+    CIFilter *colorClamp = [CIFilter filterWithName:@"CIColorClamp" keysAndValues:@"inputMaxComponents",[CIVector vectorWithX:0.9 Y:0.9 Z:0.9 W:0.9],@"inputMinComponents",[CIVector vectorWithX:0.2 Y:0.2 Z:0.2 W:0.2], nil];
+    CIFilter *instant = [CIFilter filterWithName: @"CIPhotoEffectInstant" keysAndValues: nil];
+    CIFilter  *noir = [CIFilter filterWithName:@"CIPhotoEffectNoir" keysAndValues: nil];
+    CIFilter *vignette = [CIFilter filterWithName:@"CIVignetteEffect" keysAndValues: nil];
+    CIFilter *colorControls = [CIFilter filterWithName:@"CIColorControls" keysAndValues:kCIInputSaturationKey,@0.5, nil];
+    CIFilter *transfer= [CIFilter filterWithName:@"CIPhotoEffectTransfer" keysAndValues: nil];
+    CIFilter *unsharpen = [CIFilter filterWithName:@"CIUnsharpMask" keysAndValues: nil];
+    CIFilter *monochrome = [CIFilter filterWithName:@"CIColorMonochrome" keysAndValues: nil];
+    
+    NSArray *allFilters = @[sepia,blur,colorClamp,instant,noir,vignette,colorControls,transfer,unsharpen,monochrome];
+    
+    return allFilters;
+}
 
 #pragma mark <UICollectionViewDataSource>
 
