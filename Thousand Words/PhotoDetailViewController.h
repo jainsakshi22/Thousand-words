@@ -13,7 +13,9 @@
 @interface PhotoDetailViewController : UIViewController
 
 @property(strong,nonatomic) Photo *photo;
+//@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
 
 - (IBAction)addFilterButtonPressed:(UIButton *)sender;
 - (IBAction)deleteButtonPressed:(UIButton *)sender;

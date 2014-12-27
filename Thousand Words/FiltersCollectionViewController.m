@@ -13,6 +13,7 @@
 @interface FiltersCollectionViewController ()
 
 @property (strong,nonatomic) NSMutableArray *filters;
+@property (strong,nonatomic) CIContext *context;
 
 @end
 
@@ -20,11 +21,16 @@
 
 -(NSMutableArray *)filters
 {
-    if (!_filters)
-    {
-        _filters = [[NSMutableArray alloc] init];
-    }
+    if (!_filters) _filters = [[NSMutableArray alloc] init];
+    
     return _filters;
+}
+
+-(CIContext *)context
+{
+    if (!_context) _context = [CIContext contextWithOptions:nil];
+    
+    return _context;
 }
 
 static NSString * const reuseIdentifier = @"Photo Cell";
@@ -36,7 +42,7 @@ static NSString * const reuseIdentifier = @"Photo Cell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    //[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
     self.filters = [[[self class] photoFilters] mutableCopy];
@@ -77,6 +83,22 @@ static NSString * const reuseIdentifier = @"Photo Cell";
     return allFilters;
 }
 
+//Convert UIImage to CIImage, add filter and again convert back CIImage to UIImage
+-(UIImage *)filteredImageFromImage:(UIImage *)image andFilter:(CIFilter *)filter
+{
+    CIImage *unfilteredImage = [[CIImage alloc] initWithCGImage:image.CGImage];
+    [filter setValue:unfilteredImage forKey:kCIInputImageKey];
+    CIImage *filteredImage = [filter outputImage];
+    
+    CGRect extent = [filteredImage extent];
+    
+    CGImageRef cgImage = [self.context createCGImage:filteredImage fromRect:extent];
+    
+    UIImage *finalImage = [UIImage imageWithCGImage:cgImage];
+    
+    return finalImage;
+}
+
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -94,7 +116,7 @@ static NSString * const reuseIdentifier = @"Photo Cell";
 {
     TWPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
-    cell.imageView.image = self.photo.image;
+    cell.imageView.image = [self filteredImageFromImage:self.photo.image andFilter:self.filters[indexPath.row]];
     
     return cell;
 }

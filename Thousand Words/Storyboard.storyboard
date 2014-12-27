@@ -96,12 +96,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P6F-7N-JHH">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="406" height="484"/>
-                                </variation>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnk-K8-3P8">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Add Filter">
@@ -127,37 +121,44 @@
                                     <action selector="deleteButtonPressed:" destination="rNF-Wx-aHE" eventType="touchUpInside" id="Xw4-tt-DKN"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UJI-yY-l2s">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="416" height="537"/>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="P6F-7N-JHH"/>
                                 <exclude reference="xnk-K8-3P8"/>
                                 <exclude reference="bgg-kg-FZM"/>
+                                <exclude reference="UJI-yY-l2s"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="P6F-7N-JHH"/>
                                 <include reference="xnk-K8-3P8"/>
                                 <include reference="bgg-kg-FZM"/>
+                                <include reference="UJI-yY-l2s"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="q6e-IE-mHP"/>
                     <connections>
-                        <outlet property="imageView" destination="P6F-7N-JHH" id="6iu-Il-fTF"/>
+                        <outlet property="imageView" destination="UJI-yY-l2s" id="Uj5-Ah-Mrd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLf-So-9DW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2698.5" y="474"/>
+            <point key="canvasLocation" x="2655" y="474.75"/>
         </scene>
         <!--Filters Collection View Controller-->
         <scene sceneID="iSQ-k7-04O">
             <objects>
                 <collectionViewController id="l7P-gF-Pl9" customClass="FiltersCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="kqH-wa-5VY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="df0-RH-ebR">
                             <size key="itemSize" width="50" height="50"/>
